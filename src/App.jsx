@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDownToLine, Download, Mail, ExternalLink, Filter, FileText, User, Building2, Sparkles } from "lucide-react";
+import { ArrowDownToLine, Download, Mail, ExternalLink, Filter, FileText, User, Building2, Sparkles, Github } from "lucide-react";
 
 import { DinoIcon, RhinoIcon } from "./icons";
 import {
@@ -37,10 +37,13 @@ const LoadingScreen = ({ onComplete }) => {
         initial={{ scale: 0.1, y: 50, opacity: 0 }}
         animate={{ scale: [0.1, 1, 3, 10], opacity: [0, 1, 1, 0] }}
         transition={{ duration: 2.2, ease: "easeIn" }}
-        className="text-white"
-        style={{ color: accents.red }}
       >
-        <DinoIcon className="w-32 h-32" />
+        <img
+          src="https://www.pngall.com/wp-content/uploads/13/T-Rex-PNG-Cutout.png"
+          alt="Realistic Running T-Rex"
+          className="w-48 h-48 object-contain"
+          style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
+        />
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -294,10 +297,33 @@ const Resume = () => (
 
 const Projects = () => {
   const [filter, setFilter] = useState("All");
-  const categories = ["All", "Robotics", "Drones", "Automation"];
+  const [githubProjects, setGithubProjects] = useState([]);
+
+  useEffect(() => {
+    fetch("https://api.github.com/users/Lohithl27/repos?sort=updated&per_page=6")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          const mapped = data.map(repo => ({
+            title: repo.name,
+            desc: repo.description || "No description provided.",
+            tags: repo.topics && repo.topics.length > 0 ? repo.topics : [repo.language || "GitHub"],
+            icon: Github,
+            type: "GitHub",
+            link: repo.html_url,
+          }));
+          setGithubProjects(mapped);
+        }
+      })
+      .catch(err => console.error("Error fetching GitHub repos:", err));
+  }, []);
+
+  const combinedProjects = useMemo(() => [...allProjects, ...githubProjects], [githubProjects]);
+
+  const categories = ["All", "Robotics", "Drones", "Automation", "GitHub"];
   const filtered = useMemo(
-    () => (filter === "All" ? allProjects : allProjects.filter((p) => p.type === filter)),
-    [filter]
+    () => (filter === "All" ? combinedProjects : combinedProjects.filter((p) => p.type === filter)),
+    [filter, combinedProjects]
   );
 
   return (
