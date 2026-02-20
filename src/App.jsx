@@ -39,7 +39,7 @@ const LoadingScreen = ({ onComplete }) => {
         transition={{ duration: 2.2, ease: "easeIn" }}
       >
         <img
-          src="https://www.pngall.com/wp-content/uploads/13/T-Rex-PNG-Cutout.png"
+          src="/T-Rex-PNG-Image.png"
           alt="Realistic Running T-Rex"
           className="w-48 h-48 object-contain"
           style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
