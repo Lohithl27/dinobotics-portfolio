@@ -1,7 +1,7 @@
 import { Cpu, Bot, Drone, Wrench, Rocket } from "lucide-react";
 
 export const profileData = {
-    name: "Lohith M.D",
+    name: "Lohith M R",
     brand: "Dinobotics",
     title: "Robotics & Automation Engineer · Founder of Dinobotics",
     headline: "Building Intelligent Machines",
