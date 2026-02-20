@@ -1,0 +1,20 @@
+# Dinobotics Portfolio Build Walkthrough
+
+We have successfully rebuilt the Dinobotics React portfolio and verified the output locally. The site features a comprehensive dark theme, beautiful gradients, structured sections, and interactive project cards.
+
+## Changes Made
+- Created a fresh Vite React project inside the `portfolio-site` directory.
+- Installed necessary dependencies: `lucide-react`, `framer-motion`, and Tailwind CSS (v4).
+- Configured Vite with the `@tailwindcss/vite` plugin to ensure the styles are parsed correctly.
+- Replaced the default React component with your provided `DinoboticsPortfolio` component.
+- Restarted the local development server at `http://localhost:5173/`.
+
+## Verification Results
+The site was verified multiple times to ensure the styling successfully loaded. Once the Tailwind configurations were resolved, the layout, navbar, headings, buttons, and skill cards displayed exactly as intended.
+
+Here is a recording of the final successful build:
+
+![Final Dinobotics Portfolio Layout](/Users/lohithmr/.gemini/antigravity/brain/76d196ac-1d3d-4765-a4fa-dcd0e3edc028/dinobotics_portfolio_v4_fixed_1771598481732.webp)
+
+> [!NOTE]
+> The dev server is still running on your machine at `http://localhost:5173/`, so you can just click on the link to view the website directly in your browser.
