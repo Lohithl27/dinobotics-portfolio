@@ -38,24 +38,12 @@ const LoadingScreen = ({ onComplete }) => {
         animate={{ scale: [0.1, 1, 3, 10], opacity: [0, 1, 1, 0] }}
         transition={{ duration: 2.2, ease: "easeIn" }}
       >
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [-4, 4, -4],
-          }}
-          transition={{
-            repeat: Infinity,
-            duration: 0.35,
-            ease: "easeInOut",
-          }}
-        >
-          <img
-            src="/T-Rex-PNG-Image-HD.png"
-            alt="Realistic Running T-Rex"
-            className="w-48 h-48 object-contain"
-            style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
-          />
-        </motion.div>
+        <img
+          src="/1049ed74597569.5c44ad56a1409.gif"
+          alt="Realistic Running T-Rex"
+          className="w-48 h-48 object-contain"
+          style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
+        />
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -70,7 +58,7 @@ const LoadingScreen = ({ onComplete }) => {
 };
 
 // ---- SHARED COMPONENTS ----
-const Section = ({ id, title, icon, children, className = "" }) => (
+const Section = ({ id, title, icon, children, className = "", bgGif }) => (
   <section id={id} className={`scroll-mt-24 py-16 md:py-24 relative overflow-hidden ${className}`}>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -79,11 +67,21 @@ const Section = ({ id, title, icon, children, className = "" }) => (
       transition={{ duration: 0.6 }}
       className="max-w-6xl mx-auto px-4 relative z-10"
     >
-      <div className="flex items-center gap-3 mb-8">
-        <span className="p-2 rounded-2xl bg-neutral-900 border border-neutral-800" style={glow(accents.blue)}>
+      <div className="flex items-center gap-3 mb-8 relative overflow-hidden rounded-2xl bg-neutral-900/40 p-3 border border-neutral-800/50">
+        {bgGif && (
+          <motion.div
+            className="absolute top-0 left-0 h-full w-full z-0 opacity-30 pointer-events-none"
+            initial={{ x: "-10%" }}
+            animate={{ x: "110%" }}
+            transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
+          >
+            <img src={bgGif} className="h-full w-auto object-contain" alt="Background Animation" />
+          </motion.div>
+        )}
+        <span className="p-2 rounded-xl bg-neutral-900 border border-neutral-800 relative z-10" style={glow(accents.blue)}>
           {icon}
         </span>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white relative z-10">
           {title}
         </h2>
       </div>
@@ -175,7 +173,7 @@ const Header = () => (
       </a>
       <nav className="hidden md:flex items-center gap-1">
         <NavLink href="#about">About</NavLink>
-        <NavLink href="#dinobotics">{profileData.brand}</NavLink>
+        <NavLink href="#rinobotics">{profileData.brand}</NavLink>
         <NavLink href="#resume">Resume</NavLink>
         <NavLink href="#projects">Projects</NavLink>
         <NavLink href="#contact">Contact</NavLink>
@@ -230,7 +228,7 @@ const Hero = () => (
 );
 
 const About = () => (
-  <Section id="about" title="About Me" icon={<User className="w-5 h-5 text-white" />}>
+  <Section id="about" title="About Me" icon={<User className="w-5 h-5 text-white" />} bgGif="/clip-transparent-dinosaur-gif-0.gif">
     <div className="grid md:grid-cols-2 gap-6">
       <div className="space-y-4">
         <p className="text-neutral-300 leading-relaxed">
@@ -254,8 +252,8 @@ const About = () => (
   </Section>
 );
 
-const Dinobotics = () => (
-  <Section id="dinobotics" title={profileData.brand} icon={<Building2 className="w-5 h-5 text-white" />}>
+const Rinobotics = () => (
+  <Section id="rinobotics" title={profileData.brand} icon={<Building2 className="w-5 h-5 text-white" />}>
     <div className="rounded-2xl p-6 border border-neutral-800 bg-neutral-900" style={glow(accents.red)}>
       <p className="text-neutral-300 leading-relaxed">
         <span className="text-white font-medium">{profileData.brand}</span> {profileData.dinoboticsText.substring(profileData.brand.length + 4)}
@@ -270,7 +268,7 @@ const Dinobotics = () => (
 );
 
 const Resume = () => (
-  <Section id="resume" title="Resume" icon={<FileText className="w-5 h-5 text-white" />}>
+  <Section id="resume" title="Career Path" icon={<FileText className="w-5 h-5 text-white" />} bgGif="/original-0fd7929018a90d2e1f6e8b0a610780c7.gif">
     <div className="grid lg:grid-cols-3 gap-6">
       <div className="rounded-2xl p-6 border border-neutral-800 bg-neutral-900" style={glow(accents.blue)}>
         <h3 className="text-white font-semibold mb-2">Education</h3>
@@ -344,7 +342,7 @@ const Projects = () => {
   );
 
   return (
-    <Section id="projects" title="Projects" icon={<RhinoIcon className="w-5 h-5 text-white" />}>
+    <Section id="projects" title="Projects" icon={<RhinoIcon className="w-5 h-5 text-white" />} bgGif="/original-b09a92b1dc085511e7fe96ceb34c5a80.gif">
       {/* Running Rhino Animation */}
       <motion.div
         className="absolute bottom-10 right-0 opacity-20 pointer-events-none z-0"
@@ -462,8 +460,8 @@ export default function DinoboticsPortfolio() {
         <Header />
         <Hero />
         <About />
-        <Dinobotics />
         <Resume />
+        <Rinobotics />
         <Projects />
         <Contact />
         <footer className="border-t border-neutral-900 py-8 mt-16 relative z-10">
