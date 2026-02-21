@@ -67,23 +67,16 @@ const Section = ({ id, title, icon, children, className = "", bgGif }) => (
       transition={{ duration: 0.6 }}
       className="max-w-6xl mx-auto px-4 relative z-10"
     >
-      <div className="flex items-center gap-3 mb-8 relative overflow-hidden rounded-2xl bg-neutral-900/40 p-3 border border-neutral-800/50">
-        {bgGif && (
-          <motion.div
-            className="absolute top-0 left-0 h-full w-full z-0 opacity-30 pointer-events-none"
-            initial={{ x: "-10%" }}
-            animate={{ x: "110%" }}
-            transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
-          >
-            <img src={bgGif} className="h-full w-auto object-contain" alt="Background Animation" />
-          </motion.div>
-        )}
+      <div className="flex items-center gap-3 mb-8 relative overflow-hidden rounded-2xl bg-neutral-900/40 p-3 border border-neutral-800/50 w-fit">
         <span className="p-2 rounded-xl bg-neutral-900 border border-neutral-800 relative z-10" style={glow(accents.blue)}>
           {icon}
         </span>
-        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white relative z-10">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-white relative z-10 mr-2">
           {title}
         </h2>
+        {bgGif && (
+          <img src={bgGif} className="h-10 md:h-12 w-auto object-contain relative z-10" alt="Title Animation GIF" />
+        )}
       </div>
       {children}
     </motion.div>
@@ -387,7 +380,7 @@ const Projects = () => {
 };
 
 const Contact = () => (
-  <Section id="contact" title="Contact" icon={<Mail className="w-5 h-5 text-white" />}>
+  <Section id="contact" title="Contact" icon={<Mail className="w-5 h-5 text-white" />} bgGif="/56ef36af62e3066754128d43a190df52.gif">
     <div className="grid md:grid-cols-2 gap-6 relative z-10">
       <form
         className="rounded-2xl p-6 border border-neutral-800 bg-neutral-900 space-y-4"
