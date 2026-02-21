@@ -18,8 +18,16 @@ You do not need to edit the complex React Code (`App.jsx`) just to change your t
 3. Save the file (`Cmd + S` or `Ctrl + S`).
 4. Your website will instantly update with the text you typed!
 
-## 3. Pushing Changes to GitHub
-Once you have modified `data.js` to your liking, you can save it permanently to GitHub directly from VS Code:
+## 3. Editing Directly From GitHub (Without VS Code)
+If you just need to make a fast text change and don't want to open VS Code, you can edit your website right in the browser!
+1. Go to your repository on GitHub.com (`https://github.com/Lohithl27/dinobotics-portfolio`).
+2. Navigate into `src` and click on `data.js`.
+3. Click the small **Pencil Icon** (Edit this file) in the top right corner of the file view.
+4. Make your text changes directly in the browser editor.
+5. Click the green **Commit changes...** button at the top right to save and deploy your changes.
+
+## 4. Pushing Changes to GitHub (From VS Code)
+Once you have modified `data.js` inside VS Code to your liking, you can save it permanently to GitHub:
 1. Click the **Source Control** icon on the very far left sidebar of VS Code (it looks like a branch splitting).
 2. Hover over `src/data.js` in the "Changes" list and click the **+ (Plus)** button to stage the change.
 3. Type a message in the "Message" input box (e.g. "Updated my about text").

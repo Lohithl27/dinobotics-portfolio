@@ -41,8 +41,7 @@ const LoadingScreen = ({ onComplete }) => {
         <img
           src="/1049ed74597569.5c44ad56a1409.gif"
           alt="Realistic Running T-Rex"
-          className="w-64 h-64 object-contain"
-          style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
+          className="w-72 md:w-96 h-auto object-contain drop-shadow-2xl"
         />
       </motion.div>
       <motion.div
