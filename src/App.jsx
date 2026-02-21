@@ -38,12 +38,24 @@ const LoadingScreen = ({ onComplete }) => {
         animate={{ scale: [0.1, 1, 3, 10], opacity: [0, 1, 1, 0] }}
         transition={{ duration: 2.2, ease: "easeIn" }}
       >
-        <img
-          src="/T-Rex-PNG-Image.png"
-          alt="Realistic Running T-Rex"
-          className="w-48 h-48 object-contain"
-          style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
-        />
+        <motion.div
+          animate={{
+            y: [0, -20, 0],
+            rotate: [-4, 4, -4],
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 0.35,
+            ease: "easeInOut",
+          }}
+        >
+          <img
+            src="/T-Rex-PNG-Image-HD.png"
+            alt="Realistic Running T-Rex"
+            className="w-48 h-48 object-contain"
+            style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
+          />
+        </motion.div>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
