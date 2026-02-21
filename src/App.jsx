@@ -153,12 +153,17 @@ const Header = () => (
   <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-neutral-950/60 bg-neutral-950/80 border-b border-neutral-900 overflow-hidden">
     {/* Running Dino Animation */}
     <motion.div
-      className="absolute top-0 left-0 h-1 bg-red-500/0 z-0 opacity-20 pointer-events-none"
+      className="absolute top-0 left-0 h-1 z-0 opacity-30 pointer-events-none"
       initial={{ x: "-10%" }}
       animate={{ x: "110vw" }}
       transition={{ repeat: Infinity, duration: 15, ease: "linear" }}
     >
-      <DinoIcon className="w-12 h-12 text-red-500 -mt-10 scale-x-[-1]" />
+      <img
+        src="/3goiqtx2dmb31.gif"
+        alt="Running T-Rex"
+        className="h-16 w-auto object-contain -mt-14"
+        style={{ filter: "drop-shadow(0 0 10px rgba(255, 77, 77, 0.5))" }}
+      />
     </motion.div>
 
     <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between relative z-10">
