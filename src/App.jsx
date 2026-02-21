@@ -34,14 +34,14 @@ const LoadingScreen = ({ onComplete }) => {
       onAnimationComplete={onComplete}
     >
       <motion.div
-        initial={{ scale: 0.1, y: 50, opacity: 0 }}
-        animate={{ scale: [0.1, 1, 3, 10], opacity: [0, 1, 1, 0] }}
-        transition={{ duration: 2.2, ease: "easeIn" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
       >
         <img
           src="/1049ed74597569.5c44ad56a1409.gif"
           alt="Realistic Running T-Rex"
-          className="w-48 h-48 object-contain"
+          className="w-64 h-64 object-contain"
           style={{ filter: "drop-shadow(0 0 20px rgba(255, 77, 77, 0.5))" }}
         />
       </motion.div>
