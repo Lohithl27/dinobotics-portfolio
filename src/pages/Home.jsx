@@ -232,15 +232,22 @@ export default function Home() {
     }, [loading]);
 
     return (
-        <div style={{ opacity: loading ? 0 : 1, transition: "opacity 0.5s ease-in" }}>
+        <div className="relative">
             <AnimatePresence>
-                {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
+                {loading && <LoadingScreen key="loading" onComplete={() => setLoading(false)} />}
             </AnimatePresence>
-            <Hero />
-            <About />
-            <Resume />
-            <Rinobotics />
-            <Contact />
+
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: loading ? 0 : 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                <Hero />
+                <About />
+                <Resume />
+                <Rinobotics />
+                <Contact />
+            </motion.div>
         </div>
     );
 }
