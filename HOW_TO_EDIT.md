@@ -37,3 +37,17 @@ Once you have modified `data.js` inside VS Code to your liking, you can save it 
 ## Changing Logos or Images
 - If you want to use the SVG logos, they are stored in the `/logo` folder here in your repository.
 - Background GIFs and images are stored in `/public`. Just place new images there and reference them by their filename (like `src="/my-new-image.png"`).
+
+## 5. Adding Images from Google Drive
+You can now easily link images directly from your Google Drive into the Projects and Achievements pages without having to upload them to GitHub!
+1. Upload your image to Google Drive.
+2. Right-click the image in Google Drive and select **Share**.
+3. Under "General access", change Restricted to **Anyone with the link**.
+4. Click **Copy link**.
+5. Go to `data.js` and wrap that link inside the `formatDriveImage()` function like this:
+```javascript
+  images: [
+    formatDriveImage("https://drive.google.com/file/d/1xYz.../view?usp=sharing")
+  ]
+```
+The website will automatically convert the share link into an optimized, visible image!
