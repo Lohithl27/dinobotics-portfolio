@@ -65,7 +65,7 @@ const Section = ({ id, title, icon, children, className = "", bgGif }) => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="max-w-6xl mx-auto px-4 relative z-10"
+      className="w-full px-4 md:px-8 lg:px-16 xl:px-24 mx-auto relative z-10"
     >
       <div className="flex items-center gap-3 mb-8 relative overflow-hidden rounded-2xl bg-neutral-900/40 p-3 border border-neutral-800/50 w-fit">
         <span className="p-2 rounded-xl bg-neutral-900 border border-neutral-800 relative z-10" style={glow(accents.blue)}>
@@ -157,7 +157,7 @@ const Header = () => (
       />
     </motion.div>
 
-    <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between relative z-10">
+    <div className="w-full px-4 md:px-8 lg:px-16 xl:px-24 h-16 flex items-center justify-between relative z-10 mx-auto">
       <a href="#home" className="flex items-center gap-2">
         <div className="size-8 rounded-xl bg-neutral-900 grid place-items-center border border-neutral-800" style={glow(accents.red)}>
           <DinoIcon className="w-5 h-5 text-white" />
@@ -190,7 +190,7 @@ const Hero = () => (
       <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full blur-3xl opacity-20" style={{ background: accents.yellow }} />
     </div>
 
-    <div className="max-w-6xl mx-auto px-4 pt-20 md:pt-28 pb-16 md:pb-24 relative z-10">
+    <div className="w-full px-4 md:px-8 lg:px-16 xl:px-24 pt-20 md:pt-28 pb-16 md:pb-24 relative z-10 mx-auto">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }}>
         <div className="inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs md:text-sm text-neutral-200 border-neutral-800 bg-neutral-900/80" style={glow(accents.yellow)}>
           <Sparkles className="w-4 h-4" /> {profileData.title}
@@ -458,7 +458,7 @@ export default function DinoboticsPortfolio() {
         <Projects />
         <Contact />
         <footer className="border-t border-neutral-900 py-8 mt-16 relative z-10">
-          <div className="max-w-6xl mx-auto px-4 text-sm text-neutral-500 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="w-full px-4 md:px-8 lg:px-16 xl:px-24 mx-auto text-sm text-neutral-500 flex flex-col md:flex-row items-center justify-between gap-4">
             <span>© {new Date().getFullYear()} {profileData.brand} · Built with React</span>
             <span className="flex items-center gap-2"><DinoIcon className="w-4 h-4" /> & <RhinoIcon className="w-4 h-4" /></span>
           </div>
